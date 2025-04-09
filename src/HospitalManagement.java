@@ -8,23 +8,26 @@ public class HospitalManagement {
     public static void main(String[] args) {
         HospitalManager manager = new HospitalManager();
 
-        Doctor d1 = new Doctor();
-        d1.setDoctorId(1);
-        d1.setDoctorName("Dr. House");
-        d1.setHandlingPatience(new HashSet<>());
-        d1.setHandlingRooms(new HashSet<>());
+        Doctor d1 = new Doctor.Builder()
+                .setDoctorId(1)
+                .setDoctorName("Dr. House")
+                .setHandlingPatience(new HashSet<>())
+                .setHandlingRooms(new HashSet<>())
+                .build();
         manager.addDoctor(d1);
 
-        Patient p1 = new Patient();
-        p1.setPatientId(101);
-        p1.setPatientName("John Doe");
+        Patient p1 = new Patient.Builder()
+                .setPatientId(101)
+                .setPatientName("John Doe")
+                .build();
         manager.addPatient(p1, 1, 200);
 
-        Patient p2 = new Patient();
-        p2.setPatientId(102);
-        p2.setPatientName("Jane Roe");
+        Patient p2 = new Patient.Builder()
+                .setPatientId(102)
+                .setPatientName("Jane Roe")
+                .build();
         manager.addPatient(p2, 1, 201);
-        manager.printAllDoctors();
+
         manager.printAllDoctors();
         manager.printDoctorById(1);
         manager.printPatientById(101);
